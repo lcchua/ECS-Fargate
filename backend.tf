@@ -2,8 +2,8 @@
 
 terraform {
   backend "s3" {
-    bucket = "sctp-ce7-tfstate-bucket-1"
-    key    = "ecs-fargate-lcchua.tfstate" # Change the value of this to yourname-tf-workspace-act.tfstate for  example
+    bucket = "sctp-ce7-tfstate-bucket"
+    key    = "lcchua-20241105.tfstate" # Change the value of this to yourname-tf-workspace-act.tfstate for  example
     region = "us-east-1"
   }
 }
