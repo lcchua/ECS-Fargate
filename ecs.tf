@@ -3,7 +3,7 @@
 # accordingly
 
 resource "aws_ecs_task_definition" "own_task_definition" {
-  family                = "luqmanecstaskdef" # Update accordingly
+  family                = "lcchuaecstaskdef" # Update accordingly
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
   execution_role_arn        = var.ex_role_arn
@@ -12,11 +12,11 @@ resource "aws_ecs_task_definition" "own_task_definition" {
 
   # For custom ECR image
   # container_definitions = templatefile("./files/task-definition.json", {
-  #   image_url        = "255945442255.dkr.ecr.us-east-1.amazonaws.com/luqman-test-ecr-repo:latest"
-  #   container_name   = "luqman-test-ecs"
-  #   port_name        = "luqman-test-ecs-8080-tcp"
+  #   image_url        = "255945442255.dkr.ecr.us-east-1.amazonaws.com/lcchua-nodejs-app:latest"
+  #   container_name   = "lcchua-test-ecs"
+  #   port_name        = "lcchua-test-ecs-8080-tcp"
   #   log_group_region = "us-east-1"
-  #   log_group_name   = "/ecs/luqmantesttaskdef"
+  #   log_group_name   = "/ecs/lcchuatesttaskdef"
   #   log_group_prefix = "ecs"
   # })
 
@@ -25,9 +25,9 @@ resource "aws_ecs_task_definition" "own_task_definition" {
     image_url        = "nginx:latest"
     port_name        = "nginx80-tcp"
     container_name   = "NGINX"
-    port_name        = "luqman-test-ecs-8080-tcp"
+    port_name        = "lcchua-test-ecs-80-tcp"
     log_group_region = "us-east-1"
-    log_group_name   = "/ecs/luqmantesttaskdef"
+    log_group_name   = "/ecs/lcchuatesttaskdef"
     log_group_prefix = "ecs"
   })
 }
@@ -35,13 +35,13 @@ resource "aws_ecs_task_definition" "own_task_definition" {
 # Creates an ecs clustersctp-ce5-tfstate-bucket-1
 
 resource "aws_ecs_cluster" "own_cluster" {
-  name = "luqman-ecs-test-cluster" # Update accordingly
+  name = "lcchua-ecs-test-cluster" # Update accordingly
 }
 
 # Creates an ecs service
 
 resource "aws_ecs_service" "own_service" {
-  name             = "luqman-ecs-service" # Update accordingly
+  name             = "lcchua-ecs-service" # Update accordingly
   cluster          = aws_ecs_cluster.own_cluster.arn
   task_definition  = aws_ecs_task_definition.own_task_definition.arn
   desired_count    = 1
