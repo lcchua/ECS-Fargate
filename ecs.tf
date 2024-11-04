@@ -3,7 +3,7 @@
 # accordingly
 
 resource "aws_ecs_task_definition" "own_task_definition" {
-  family                = "lcchuaecstaskdef" # Update accordingly
+  family                = "lcchua-ecs-taskdef2" # Update accordingly
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
   execution_role_arn        = var.ex_role_arn
@@ -25,9 +25,8 @@ resource "aws_ecs_task_definition" "own_task_definition" {
     image_url        = "nginx:latest"
     port_name        = "nginx80-tcp"
     container_name   = "NGINX"
-    port_name        = "lcchua-test-ecs-80-tcp"
     log_group_region = "us-east-1"
-    log_group_name   = "/ecs/lcchuatesttaskdef"
+    log_group_name   = "/ecs/lcchua-test2-ecs-taskdef"
     log_group_prefix = "ecs"
   })
 }
@@ -35,13 +34,13 @@ resource "aws_ecs_task_definition" "own_task_definition" {
 # Creates an ecs clustersctp-ce5-tfstate-bucket-1
 
 resource "aws_ecs_cluster" "own_cluster" {
-  name = "lcchua-ecs-test-cluster" # Update accordingly
+  name = "lcchua-ecs-test2-cluster" # Update accordingly
 }
 
 # Creates an ecs service
 
 resource "aws_ecs_service" "own_service" {
-  name             = "lcchua-ecs-service" # Update accordingly
+  name             = "lcchua-nginx2-service" # Update accordingly
   cluster          = aws_ecs_cluster.own_cluster.arn
   task_definition  = aws_ecs_task_definition.own_task_definition.arn
   desired_count    = 1
