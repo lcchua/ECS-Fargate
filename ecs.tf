@@ -3,12 +3,12 @@
 # accordingly
 
 resource "aws_ecs_task_definition" "own_task_definition" {
-  family                = "lcchua-ecs-taskdef2" # Update accordingly
+  family                   = "lcchua-ecs-taskdef2" # Update accordingly
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-  execution_role_arn        = var.ex_role_arn
-  cpu                   =   2048
-  memory                = 4096
+  execution_role_arn       = var.ex_role_arn
+  cpu                      = 2048
+  memory                   = 4096
 
   # For custom ECR image
   # container_definitions = templatefile("./files/task-definition.json", {
@@ -48,8 +48,8 @@ resource "aws_ecs_service" "own_service" {
   platform_version = "LATEST"
 
   deployment_circuit_breaker {
-    enable          = true
-    rollback        = true
+    enable   = true
+    rollback = true
   }
 
   load_balancer {
@@ -61,6 +61,6 @@ resource "aws_ecs_service" "own_service" {
   network_configuration {
     subnets          = data.aws_subnets.existing_subnets.ids
     assign_public_ip = true
-    security_groups = [var.sg_id]
+    security_groups  = [var.sg_id]
   }
 }

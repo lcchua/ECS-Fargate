@@ -5,13 +5,13 @@ variable "vpc_id" {
 }
 
 variable "ex_role_arn" {
-    description = "The arn of execution role"
-    type        = string
-    default     = "arn:aws:iam::255945442255:role/ecsTaskExecutionRole"
+  description = "The arn of execution role"
+  type        = string
+  default     = "arn:aws:iam::255945442255:role/ecsTaskExecutionRole"
 }
 
 variable "sg_id" {
-    description = "The security group id"
-    type        = string
-    default     = "sg-0cd2487ae1c22cb8e"
+  description = "The security group id"
+  type        = string
+  default     = "sg-0cd2487ae1c22cb8e"
 }
