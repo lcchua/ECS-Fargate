@@ -1,5 +1,5 @@
 resource "aws_lb" "ecs-alb" {
-  name               = "lcchua-ecs-alb"
+  name               = "lcchuaECSALB2"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [var.sg_id]
