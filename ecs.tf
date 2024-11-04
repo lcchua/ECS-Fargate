@@ -43,7 +43,7 @@ resource "aws_ecs_service" "own_service" {
   name             = "lcchua-nginx2-service" # Update accordingly
   cluster          = aws_ecs_cluster.own_cluster.arn
   task_definition  = aws_ecs_task_definition.own_task_definition.arn
-  desired_count    = 1
+  desired_count    = 2
   launch_type      = "FARGATE"
   platform_version = "LATEST"
 

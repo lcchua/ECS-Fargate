@@ -11,8 +11,7 @@ data "aws_subnets" "existing_subnets" {
     name   = "vpc-id"
     values = [var.vpc_id]
   }
-  filter {
-    name = "tag:Type"
-    values = ["public"]
-  }
+}
+output "filtered_subnets" {
+  value = data.aws_subnets.existing_subnets.ids
 }
