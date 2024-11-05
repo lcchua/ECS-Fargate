@@ -1,10 +1,9 @@
 resource "aws_lb" "ecs-alb" {
-  name               = "lcchuaECSALB2"
+  name               = "lcchuaECSALB"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [var.sg_id]
-  #subnets            = toset(data.aws_subnets.existing_subnets.ids)
-  subnets = ["subnet-0bde209c140799962", "subnet-0d186c331ba4ead00", "subnet-0b3a70f3d03b15349"]
+  subnets            = toset(data.aws_subnets.public_subnets.ids)
 
   enable_deletion_protection = false
 

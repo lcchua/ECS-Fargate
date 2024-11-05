@@ -6,12 +6,16 @@ data "aws_vpc" "existing_vpc" {
 
 # Use existing subnets
 
-data "aws_subnets" "existing_subnets" {
+data "aws_subnets" "public_subnets" {
   filter {
     name   = "vpc-id"
     values = [var.vpc_id]
   }
+  filter {
+    name   = "tag:Name"
+    values = ["*public*"]
+  }
 }
 output "filtered_subnets" {
-  value = data.aws_subnets.existing_subnets.ids
+  value = data.aws_subnets.public_subnets.ids
 }
