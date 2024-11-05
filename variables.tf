@@ -1,7 +1,7 @@
 variable "vpc_id" {
   description = "The ID of the VPC"
   type        = string
-  default     = "vpc-09763ca5e98145a0a"
+  default     = "vpc-063b5036ab28890d0"
 }
 
 variable "ex_role_arn" {
@@ -13,5 +13,5 @@ variable "ex_role_arn" {
 variable "sg_id" {
   description = "The security group id"
   type        = string
-  default     = "sg-0eb49c0c04e0b11e9"
+  default     = "sg-09d730efb8cd0fcc6"
 }
