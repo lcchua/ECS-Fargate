@@ -3,7 +3,7 @@
 # accordingly
 
 resource "aws_ecs_task_definition" "own_task_definition" {
-  family                   = "lcchua-ecs-taskdef" # Update accordingly
+  family                   = "lcchua-ecs-taskdef" 
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
   execution_role_arn       = var.ex_role_arn
